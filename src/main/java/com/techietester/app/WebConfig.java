@@ -19,8 +19,10 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        // Swagger UI
         registry.addResourceHandler("/swagger-ui/**")
-                .addResourceLocations("classpath:/swagger-ui/dist/");
+                .addResourceLocations("classpath:/META-INF/resources/webjars/swagger-ui/3.52.5/");
+        // Остальные статические ресурсы
         registry.addResourceHandler("/**")
                 .addResourceLocations(CLASSPATH_RESOURCE_LOCATIONS);
     }
@@ -28,5 +30,6 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addRedirectViewController("/", "/index.html");
+        registry.addRedirectViewController("/swagger-ui.html", "/swagger-ui/index.html");
     }
 }

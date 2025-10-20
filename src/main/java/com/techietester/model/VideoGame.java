@@ -1,18 +1,30 @@
 package com.techietester.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Date;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.v3.oas.annotations.media.Schema;
 
-@XmlRootElement
+import java.util.Date;
+
+@Schema(description = "Model representing a Video Game")
 public class VideoGame {
 
+    @Schema(description = "Unique ID of the video game", example = "1")
     private int id;
+
+    @Schema(description = "Name of the video game", example = "The Witcher 3")
     private String name;
+
+    @Schema(description = "Release date of the video game")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date releaseDate;
+
+    @Schema(description = "Review score of the game", example = "95")
     private int reviewScore;
+
+    @Schema(description = "Category of the game", example = "RPG")
     private String category;
+
+    @Schema(description = "Rating of the game", example = "M")
     private String rating;
 
     public int getId() {
@@ -47,15 +59,19 @@ public class VideoGame {
         this.reviewScore = reviewScore;
     }
 
-    @XmlAttribute
-    public String getCategory() { return category; }
+    public String getCategory() {
+        return category;
+    }
 
-    public void setCategory(String category) { this.category = category; }
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
-    @XmlAttribute
-    public String getRating() { return rating; }
+    public String getRating() {
+        return rating;
+    }
 
-    public void setRating(String rating) { this.rating = rating; }
-
-
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
 }
