@@ -14,9 +14,9 @@ import javax.ws.rs.core.MediaType;
 public class AppResourceConfig extends ResourceConfig {
 
     public AppResourceConfig() {
-
-        packages("in.techietester.resource", "in.techietester.app");
+        packages("com.techietester.resource", "com.techietester.app");
         register(VideoGameResource.class);
+        register(org.glassfish.jersey.jackson.internal.jackson.jaxrs.json.JacksonJaxbJsonProvider.class);
 
         configureSwagger();
     }
@@ -33,8 +33,9 @@ public class AppResourceConfig extends ResourceConfig {
         beanConfig.getSwagger().addProduces(MediaType.APPLICATION_JSON);
         beanConfig.setContact("James Willett");
         beanConfig.setResourcePackage("com.techietester.resource");
-        beanConfig.setPrettyPrint(false);
+        beanConfig.setPrettyPrint(true);
         beanConfig.setScan();
     }
-
 }
+
+
