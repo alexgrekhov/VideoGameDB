@@ -19,7 +19,7 @@
     <properties>
         <java.version>17</java.version>
         <jersey.version>2.38</jersey.version>
-        <swagger.version>1.5.22</swagger.version>
+        <swagger.version>1.6.14</swagger.version>
     </properties>
 
     <dependencies>
@@ -91,7 +91,7 @@
         </plugins>
     </build>
 
-    <!-- Явно обновлённая зависимость javassist, чтобы исчезло предупреждение Maven -->
+    <!-- Dependency management для javassist -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -103,3 +103,4 @@
     </dependencyManagement>
 
 </project>
+
